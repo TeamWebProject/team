@@ -15,11 +15,10 @@ public class ReviewService {
         return this.reviewRepository.findById(reviewid).get();
     }
 
-    public void create(Restaurant restaurant, String content, String title, int rating, LocalDateTime localDateTime) {
+    public void create(Restaurant restaurant, String content, int rating, LocalDateTime localDateTime) {
         Review review = new Review();
         review.setRestaurant(restaurant);
         review.setContent(content);
-        review.setTitle(title);
         review.setRating(rating);
         review.setCreateDate(localDateTime);
 
