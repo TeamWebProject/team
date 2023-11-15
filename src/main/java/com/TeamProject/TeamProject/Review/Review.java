@@ -1,5 +1,6 @@
 package com.TeamProject.TeamProject.Review;
 
+import com.TeamProject.TeamProject.Member.Member;
 import com.TeamProject.TeamProject.Restaurant.Restaurant;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -17,18 +18,23 @@ public class Review {
   private Integer id;
 
   @Column(length = 200)
-  public String title;
+  private String title;
 
   @Column(columnDefinition = "TEXT")
-  public String content;
+  private String content;
 
-  public int rating;
+  private int rating; //평점
+  private int thumbsup; // 해당 리뷰가 받은 추천수
 
-  public String category;
+  private String category;
+
+  private Member author;
 
   @CreatedDate
-  public LocalDateTime createDate;
+  private LocalDateTime createDate;
 
   @ManyToOne
-  public Restaurant restaurant;
+  private Restaurant restaurant;
+
+
 }
