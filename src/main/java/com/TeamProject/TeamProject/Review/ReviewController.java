@@ -3,6 +3,7 @@ package com.TeamProject.TeamProject.Review;
 
 import com.TeamProject.TeamProject.Member.Member;
 import com.TeamProject.TeamProject.Member.MemberRepository;
+import com.TeamProject.TeamProject.Member.MemberService;
 import com.TeamProject.TeamProject.Restaurant.Restaurant;
 import com.TeamProject.TeamProject.Restaurant.RestaurantService;
 import jakarta.validation.Valid;
@@ -22,6 +23,7 @@ import java.util.List;
 public class ReviewController {
     private final RestaurantService restaurantService;
     private final ReviewService reviewService;
+    private final MemberService memberService;
 
     private final MemberRepository memberRepository; // ㅌㅔ스트용. 추후 삭제예정
     private final ReviewRepository reviewRepository; // 테스트용. 추후 삭제예정
@@ -36,11 +38,9 @@ public class ReviewController {
             return "createReview_form";
         }
 
-//        Restaurant restaurant = restaurantService.getRestaurantById(id); // 해당 식당 아이디 찾아서 반환
-        Restaurant restaurant = restaurantService.getRestaurantById(reviewForm.getRestaurantId());
-
-//        reviewService.create(restaurant, content, rating, localDateTime);
-        reviewService.create(restaurant,reviewForm.getContent(),reviewForm.getRating(),reviewForm.getCreateDate());
+        Restaurant restaurant = restaurantService.getRestaurantById(reviewForm.getRestaurantId()); // 해당 식당 아이디 찾아서 반환
+//        Member member = this.memberService.getMember()
+        reviewService.create(restaurant, reviewForm.getContent(),reviewForm.getRating(),reviewForm.getCreateDate());
 
         model.addAttribute("restaurant",restaurant);
 

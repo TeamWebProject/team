@@ -1,5 +1,6 @@
 package com.TeamProject.TeamProject.Review;
 
+import com.TeamProject.TeamProject.Member.Member;
 import com.TeamProject.TeamProject.Restaurant.Restaurant;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -15,12 +16,13 @@ public class ReviewService {
         return this.reviewRepository.findById(reviewid).get();
     }
 
-    public void create(Restaurant restaurant, String content, int rating, LocalDateTime localDateTime) {
+    public void create(Restaurant restaurant, String content, double rating, LocalDateTime localDateTime) {
         Review review = new Review();
         review.setRestaurant(restaurant);
         review.setContent(content);
         review.setRating(rating);
         review.setCreateDate(localDateTime);
+        review.setRestaurant(restaurant);
 
         reviewRepository.save(review);
     }
