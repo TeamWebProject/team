@@ -39,7 +39,6 @@ public class ReviewController {
         }
 
         Restaurant restaurant = restaurantService.getRestaurantById(reviewForm.getRestaurantId()); // 해당 식당 아이디 찾아서 반환
-//        Member member = this.memberService.getMember()
         reviewService.create(restaurant, reviewForm.getContent(),reviewForm.getRating(),reviewForm.getCreateDate());
 
         model.addAttribute("restaurant",restaurant);
