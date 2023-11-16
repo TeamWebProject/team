@@ -15,14 +15,15 @@ public class ReviewService {
         return this.reviewRepository.findById(reviewid).get();
     }
 
-    public void create(Restaurant restaurant, String content, int rating, LocalDateTime localDateTime) {
+    public void create(Restaurant restaurant,String content, double rating, LocalDateTime localDateTime) {
         Review review = new Review();
         review.setRestaurant(restaurant);
+//        review.setThumbsup(5);   --------------> x테스트용. 추후 삭제예정
         review.setContent(content);
         review.setRating(rating);
         review.setCreateDate(localDateTime);
 
-        reviewRepository.save(review);
+        this.reviewRepository.save(review);
     }
 
 }
