@@ -54,7 +54,7 @@ public class ReviewController {
     }
 
 
-    @GetMapping("/detail")
+    @GetMapping("/detail/{reviewid}")
     public String reviewdetail(Model model, Integer reviewid) {
         Review targetReview = new Review();
 //        Restaurant restaurant = new Restaurant();
